@@ -1,0 +1,11 @@
+[project]
+name = "QuickSaveReload"
+version = "1"
+authors = [{ name = "Yeti" }]
+description = "Hotkey to quickly save and reload your game."
+
+[tool.sdkmod]
+name = "Quick Save/Reload"
+license = {name = "GPL3", url = "https://choosealicense.com/licenses/gpl-3.0/" }
+download = "https://github.com/RedxYeti/BL3-SDK-Mods/raw/refs/heads/main/QuickSaveReload/QuickSaveReload.sdkmod"
+version = "1"
