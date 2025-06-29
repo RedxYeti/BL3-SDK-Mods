@@ -2,7 +2,7 @@
 name = "command_history"
 version = "1"
 authors = [{ name = "Yeti" }]
-description = "Save your console history between game launches. History is saved in sdk_mods\settings\command_history."
+description = "Save your console history between game launches. History is saved in sdk_mods/settings/command_history."
 
 [tool.sdkmod]
 name = "Command History"
