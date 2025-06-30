@@ -34,6 +34,7 @@ def save_command(new_command:str):
         history = [line.strip() for line in file if line.strip()]
 
     if new_command in history:
+        history.remove(new_command)
         return
 
     history.append(new_command.strip())
