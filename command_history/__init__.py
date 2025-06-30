@@ -35,7 +35,6 @@ def save_command(new_command:str):
 
     if new_command in history:
         history.remove(new_command)
-        return
 
     history.append(new_command.strip())
 
