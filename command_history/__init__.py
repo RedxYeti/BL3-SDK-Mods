@@ -1,5 +1,5 @@
 from unrealsdk import find_all
-from mods_base import build_mod, capture_next_console_line, SETTINGS_DIR, SliderOption
+from mods_base import build_mod, capture_next_console_line, SETTINGS_DIR, SliderOption, get_pc
 import os
 
 console_history:str = ""
@@ -22,6 +22,7 @@ def prep_history() -> None:
     
         find_all("Console")[-1].HistoryBuffer = history
 
+
     capture_next_console_line(save_command)
     return
 
@@ -30,6 +31,8 @@ def save_command(new_command:str):
     if not new_command:
         return
     
+    get_pc().SendToConsole(new_command)
+
     with open(console_history, "r") as file:
         history = [line.strip() for line in file if line.strip()]
 
@@ -43,7 +46,7 @@ def save_command(new_command:str):
     with open(console_history, "w") as file:
         for command in history:
             file.write(command + "\n")
-            
+    
     capture_next_console_line(save_command)
     return
 
