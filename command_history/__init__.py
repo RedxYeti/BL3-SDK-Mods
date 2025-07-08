@@ -1,62 +1,51 @@
 from unrealsdk import find_all
-from mods_base import build_mod, capture_next_console_line, SETTINGS_DIR, SliderOption, get_pc
+from unrealsdk.hooks import Type
+from mods_base import build_mod, SETTINGS_DIR, hook, ENGINE
 import os
 
-console_history:str = ""
+console_history_path:str = ""
+saved_history:list = []
+prep_finished:bool = False
 
 def prep_history() -> None:
-    global console_history
-    console_history_dir = os.path.join(SETTINGS_DIR, "console_history")
+    global console_history_path, prep_finished, saved_history
+    console_history_dir = os.path.join(SETTINGS_DIR, "console_history_path")
 
     if not os.path.exists(console_history_dir):
         os.makedirs(console_history_dir)
 
-    console_history = os.path.join(console_history_dir, "console_history.txt")
+    console_history_path = os.path.join(console_history_dir, "console_history_path.txt")
 
-    if not os.path.exists(console_history):
-        with open(console_history, "w") as file:
+    if not os.path.exists(console_history_path):
+        with open(console_history_path, "w") as file:
             file.write("")
     else:
-        with open(console_history, "r") as file:
+        with open(console_history_path, "r") as file:
             history = [line.strip() for line in file if line.strip()]
     
-        find_all("Console")[-1].HistoryBuffer = history
+        ENGINE.GameViewport.ViewportConsole.HistoryBuffer = history
+    
+    saved_history = history
+    prep_finished = True
+    
+
+def update_history(current_history):
+    global saved_history
+    saved_history = current_history
+    with open(console_history_path, "w") as file:
+        for command in current_history:
+            file.write(command + "\n")
 
 
-    capture_next_console_line(save_command)
-    return
-
-
-def save_command(new_command:str):
-    if not new_command:
+@hook("/Script/Engine.HUD:ReceiveDrawHUD", Type.POST_UNCONDITIONAL)
+def save_command(*_):
+    if not prep_finished:
         return
     
-    get_pc().SendToConsole(new_command)
+    global saved_history
+    current_history = list(ENGINE.GameViewport.ViewportConsole.HistoryBuffer)
+    if saved_history != current_history:
+        update_history(current_history)
 
-    with open(console_history, "r") as file:
-        history = [line.strip() for line in file if line.strip()]
-
-    if new_command in history:
-        history.remove(new_command)
-
-    history.append(new_command.strip())
-
-    history = history[-oidMaxHistory.value:]
-
-    with open(console_history, "w") as file:
-        for command in history:
-            file.write(command + "\n")
-    
-    capture_next_console_line(save_command)
-    return
-
-
-oidMaxHistory = SliderOption(
-    "Max History Count",
-    20,
-    1,
-    50,
-    description="Choose how many commands are saved."
-)
 
 build_mod(on_enable=prep_history)
