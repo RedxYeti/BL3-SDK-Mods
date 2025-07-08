@@ -24,8 +24,8 @@ def prep_history() -> None:
             history = [line.strip() for line in file if line.strip()]
     
         ENGINE.GameViewport.ViewportConsole.HistoryBuffer = history
-    
-    saved_history = history
+        saved_history = history
+
     prep_finished = True
     
 
@@ -42,7 +42,6 @@ def save_command(*_):
     if not prep_finished:
         return
     
-    global saved_history
     current_history = list(ENGINE.GameViewport.ViewportConsole.HistoryBuffer)
     if saved_history != current_history:
         update_history(current_history)
