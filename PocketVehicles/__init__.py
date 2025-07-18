@@ -15,13 +15,16 @@ def spawn_vehicle() -> None:
 
     player_loc = get_pc().Pawn.K2_GetActorLocation()
     player_rot = get_pc().Pawn.K2_GetActorRotation()
-    
-    platform.PlatformSafeZone.K2_SetRelativeLocationAndRotation(player_loc, player_rot, False, IGNORE_STRUCT, True)
-    platform.PlatformSmallVehicleSafeZone1.K2_SetRelativeLocationAndRotation(player_loc, player_rot, False, IGNORE_STRUCT, True)
-    platform.SmallVehicleSpawnSocket1.K2_SetRelativeLocationAndRotation(player_loc, player_rot, False, IGNORE_STRUCT, True)
-    
+
     veh_index = get_pc().CurrentSavegame.VehicleLastLoadoutIndex
     car = get_pc().VehicleSpawnerComponent.VehicleLoadouts[veh_index]
+
+    if "revolver" in str(car.body).lower():
+        platform.PlatformSafeZone.K2_SetRelativeLocationAndRotation(player_loc, player_rot, False, IGNORE_STRUCT, True)
+        platform.PlatformSmallVehicleSafeZone1.K2_SetRelativeLocationAndRotation(player_loc, player_rot, False, IGNORE_STRUCT, True)
+        platform.SmallVehicleSpawnSocket1.K2_SetRelativeLocationAndRotation(player_loc, player_rot, False, IGNORE_STRUCT, True)
+    else:
+        platform.K2_SetActorLocationAndRotation(player_loc, player_rot, False, IGNORE_STRUCT, True)
 
     get_pc().SpawnVehicleFromConfig(get_pc().Pawn.PlayerBalanceState.GetExperienceLevel(),car,ride)
     
