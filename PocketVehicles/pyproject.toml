@@ -7,5 +7,5 @@ description = "Spawn your current preset vehicle anywhere."
 [tool.sdkmod]
 name = "Pocket Vehicles"
 license = {name = "GPL3", url = "https://choosealicense.com/licenses/gpl-3.0/" }
-download = ""
+download = "https://github.com/RedxYeti/BL3-SDK-Mods/raw/refs/heads/main/PocketVehicles/PocketVehicles.sdkmod"
 version = "1"
