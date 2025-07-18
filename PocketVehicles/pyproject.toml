@@ -2,7 +2,7 @@
 name = "PocketVehicles"
 version = "1"
 authors = [{ name = "Yeti" }]
-description = "Spawn your current preset vehicle anywhere."
+description = "Spawn your current preset vehicle anywhere. Currently only works with the wheel."
 
 [tool.sdkmod]
 name = "Pocket Vehicles"
