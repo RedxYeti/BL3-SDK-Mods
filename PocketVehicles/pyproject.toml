@@ -1,0 +1,11 @@
+[project]
+name = "PocketVehicles"
+version = "1"
+authors = [{ name = "Yeti" }]
+description = "Spawn your current preset vehicle anywhere."
+
+[tool.sdkmod]
+name = "Pocket Vehicles"
+license = {name = "GPL3", url = "https://choosealicense.com/licenses/gpl-3.0/" }
+download = ""
+version = "1"
