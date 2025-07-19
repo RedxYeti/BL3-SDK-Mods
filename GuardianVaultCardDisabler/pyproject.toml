@@ -2,7 +2,7 @@
 name = "GuardianVaultCardDisabler"
 version = "1"
 authors = [{ name = "Yeti" }]
-description = "Disables all Guardian Rank and Vault Card progression. It does not remove any current progression, just stops all XP Gain towards them.
+description = "Disables all Guardian Rank and Vault Card progression. Does not remove any current progression, just stops all XP Gain towards them.
 "
 
 [tool.sdkmod]
