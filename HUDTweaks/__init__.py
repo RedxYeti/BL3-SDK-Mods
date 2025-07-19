@@ -98,9 +98,13 @@ def SetScale(PC):
 @hook("/Script/GbxUI.GbxGFxHUDWidget:extInitAnimationFinished", Type.POST)
 @hook("/Script/GbxUI.GbxGFxHUDWidget:extHideAnimationFinished", Type.POST)
 @hook("/Script/OakGame.GFxExperienceBar:extFinishedDim", Type.POST)
+@hook("/Script/OakGame.OakHUD:StateChanged", Type.POST)
 def extInitAnimationFinished(obj: UObject, args: WrappedStruct, ret: Any, func: BoundFunction) -> None:
     if oidScale.value != 100:
-        SetScale(obj.GetOwningPlayerController())
+        if func.func.Name == "StateChanged":
+            SetScale(obj.OakPlayerOwner)
+        else:
+            SetScale(obj.GetOwningPlayerController())
 
     if func.func.Name == "extFinishedDim":
         HideStuff(obj)
