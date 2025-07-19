@@ -1,0 +1,11 @@
+[project]
+name = "CutsceneDisabler"
+version = "1"
+authors = [{ name = "Yeti" }]
+description = "Disables Cutscenes that are able to be skipped."
+
+[tool.sdkmod]
+name = "Cutscene Disabler"
+license = {name = "GPL3", url = "https://choosealicense.com/licenses/gpl-3.0/" }
+download = ""
+version = "1"
