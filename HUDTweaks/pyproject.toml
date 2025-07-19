@@ -1,0 +1,11 @@
+[project]
+name = "HUDTweaks"
+version = "1"
+authors = [{ name = "Yeti" }]
+description = "Scale your HUD again."
+
+[tool.sdkmod]
+name = "HUD Tweaks"
+license = {name = "GPL3", url = "https://choosealicense.com/licenses/gpl-3.0/" }
+download = ""
+version = "1"
