@@ -7,5 +7,5 @@ description = "Disables Cutscenes that are able to be skipped."
 [tool.sdkmod]
 name = "Cutscene Disabler"
 license = {name = "GPL3", url = "https://choosealicense.com/licenses/gpl-3.0/" }
-download = ""
+download = "https://github.com/RedxYeti/BL3-SDK-Mods/raw/refs/heads/main/CutsceneDisabler/CutsceneDisabler.sdkmod"
 version = "1"
