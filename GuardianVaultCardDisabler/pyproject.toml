@@ -7,5 +7,6 @@ description = "Disables all Guardian Rank and Vault Card progression."
 [tool.sdkmod]
 name = "Guardian Rank/Vault Card Disabler"
 license = {name = "GPL3", url = "https://choosealicense.com/licenses/gpl-3.0/" }
-download = ""
+download = "https://github.com/RedxYeti/BL3-SDK-Mods/raw/refs/heads/main/GuardianVaultCardDisabler/GuardianVaultCardDisabler.sdkmod"
+supported_games = ["BL3"]
 version = "1"
