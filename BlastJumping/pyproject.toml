@@ -9,4 +9,5 @@ name = "Blast Jumping"
 license = {name = "GPL3", url = "https://choosealicense.com/licenses/gpl-3.0/" }
 download = "https://github.com/RedxYeti/BL3-SDK-Mods/raw/refs/heads/main/BlastJumping/BlastJumping.sdkmod"
 coop_support = "RequiresAllPlayers"
+supported_games = ["BL3"]
 version = "1"
