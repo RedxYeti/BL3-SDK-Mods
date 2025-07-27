@@ -86,7 +86,7 @@ player_nades = []
 def ReceiveDestroyed(obj: UObject,args: WrappedStruct,ret: Any,func: BoundFunction) -> Any:
     if "grenade" not in str(obj).lower():
         return
-    print(obj.Instigator.Class.Name)
+
     if not obj.Instigator or obj.Instigator.Class.Name not in character_classes:
         return
     
