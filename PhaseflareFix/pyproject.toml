@@ -7,5 +7,5 @@ description = "Disables most or all of the Phaseflare orb making it a usable act
 [tool.sdkmod]
 name = "Phaseflare Fix"
 license = {name = "GPL3", url = "https://choosealicense.com/licenses/gpl-3.0/" }
-download = ""
+download = "https://github.com/RedxYeti/BL3-SDK-Mods/raw/refs/heads/main/PhaseflareFix/PhaseflareFix.sdkmod"
 version = "1.0"
