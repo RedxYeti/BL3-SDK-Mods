@@ -8,6 +8,6 @@ description = "This mod makes it so that character-specific attributes will only
 name = "No Wasted Equipment (SDK Version)"
 license = {name = "GPL3", url = "https://choosealicense.com/licenses/gpl-3.0/" }
 supported_games = ["BL3"]
-download = ""
+download = "https://github.com/RedxYeti/BL3-SDK-Mods/raw/refs/heads/main/NoWastedEquipmentSDK/NoWastedEquipmentSDK.sdkmod"
 coop_support = "HostOnly"
 version = "1.0"
