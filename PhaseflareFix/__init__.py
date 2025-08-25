@@ -73,7 +73,7 @@ oidFFYL = BoolOption(
     False,
     "On",
     "Off",
-    description=("Stops the orb from breaking while your in fight for your life."),
+    description=("Stops the orb from breaking while you're in fight for your life."),
 )
 
 build_mod()
