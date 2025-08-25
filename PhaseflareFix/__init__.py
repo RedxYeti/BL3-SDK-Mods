@@ -1,6 +1,6 @@
 from typing import Any
 from mods_base import hook, build_mod, BoolOption 
-from unrealsdk.hooks import Type
+from unrealsdk.hooks import Type, Block
 from unrealsdk.unreal import UObject, WrappedStruct 
 
 
@@ -53,20 +53,27 @@ def PhasePhlarePhix(obj: UObject, args: WrappedStruct, *_) -> None:
             setattr(response, channel, 1)
     return
 
- 
-def orb_option(option, new_value):
-    global orb_states
-    orb_states = [2,3,4] if new_value else [3,4]
 
-oidCollisionAmount = BoolOption(
-    "Collision Amount",
+@hook("/Script/OakGame.OakActionAbility:OnStopActionAbility",Type.PRE)
+@hook("/Script/OakGame.OakActionAbility:OnPlayerDeadOrDying",Type.PRE)
+def PhasePhlareDowned(obj: UObject, args: WrappedStruct, *_):
+    if not oidFFYL.value:
+        return
+
+    if obj.Class.Name != "ActionSkill_Siren_Phasetrance_C" or not obj.DLCSkillOrb:
+        return
+
+    if obj.GetDurationPercent() > 0 and obj.GetOakPlayerController().Pawn.FFYLComponent.CurrentDownState == 1:
+        return Block
+
+ 
+
+oidFFYL = BoolOption(
+    "Enabled During FFYL",
     False,
-    "No Collision",
-    "Less Collision",
-    description=("Controls how much collision is removed from the orb."
-                "\n\nLess collision will be good in most cases but will still get stuck from time to time."
-                "\n\nNo collision means it will almost never get stuck, but if you melee it in a direction with no enemies, it may keep going that direction forever until you call it back."),
-    on_change=orb_option
+    "On",
+    "Off",
+    description=("Stops the orb from breaking while your in fight for your life."),
 )
 
 build_mod()
