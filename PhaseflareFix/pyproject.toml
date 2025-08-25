@@ -1,11 +1,11 @@
 [project]
 name = "PhaseflareFix"
-version = "1.11"
+version = "1.15"
 authors = [{ name = "Yeti" }]
-description = "Disables most or all of the Phaseflare orb making it a usable action skill. Make sure to check the options in game for how much collision you want to remove."
+description = "Disables most of the collision on the Phaseflare orb making it a usable action skill. Also has an option to not break when in ffyl."
 
 [tool.sdkmod]
 name = "Phaseflare Fix"
 license = {name = "GPL3", url = "https://choosealicense.com/licenses/gpl-3.0/" }
 download = "https://github.com/RedxYeti/BL3-SDK-Mods/raw/refs/heads/main/PhaseflareFix/PhaseflareFix.sdkmod"
-version = "1.11"
+version = "1.15"
