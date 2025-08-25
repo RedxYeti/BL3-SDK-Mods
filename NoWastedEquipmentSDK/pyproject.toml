@@ -1,0 +1,13 @@
+[project]
+name = "NoWastedEquipmentSDK"
+version = "1.0"
+authors = [{ name = "Yeti and Apocalyptech" }]
+description = "This mod makes it so that character-specific attributes will only ever spawn in a version which is useful to a player currently in the game. This applies to COMs, Customizations, and Anointments on gear."
+
+[tool.sdkmod]
+name = "No Wasted Equipment (SDK Version)"
+license = {name = "GPL3", url = "https://choosealicense.com/licenses/gpl-3.0/" }
+supported_games = ["BL3"]
+download = ""
+coop_support = "HostOnly"
+version = "1.0"
