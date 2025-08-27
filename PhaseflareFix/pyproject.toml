@@ -2,7 +2,7 @@
 name = "PhaseflareFix"
 version = "1.5"
 authors = [{ name = "Yeti" }]
-description = "Disables most or all of the Phaseflare orb making it a usable action skill. Make sure to check the options in game for how much collision you want to remove."
+description = "Disables most or all of the Phaseflare orb making it a usable action skill. Also has options for disabling the melee autoaim, Forcing it to land on the enemy its homing too, not ending in ffyl and force the height to the player height."
 
 [tool.sdkmod]
 name = "Phaseflare Fix"
