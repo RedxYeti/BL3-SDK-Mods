@@ -7,5 +7,5 @@ description = "Enemies use and drop real weapons."
 [tool.sdkmod]
 name = "Cold Dead Hands"
 license = {name = "GPL3", url = "https://choosealicense.com/licenses/gpl-3.0/" }
-download = ""
+download = "https://github.com/RedxYeti/BL3-SDK-Mods/raw/refs/heads/main/ColdDeadHands/ColdDeadHands.sdkmod"
 version = "1.0"
