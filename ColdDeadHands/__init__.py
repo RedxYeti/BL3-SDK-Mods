@@ -84,11 +84,10 @@ def OnPossess_CDH(obj: UObject,args: WrappedStruct, ret: Any, func: BoundFunctio
                             collection.ItemPoolLists = []
  
 
-
-@hook("/Script/OakGame.OakPlayerController:OnLevelChanged", Type.POST)
-def ServerAcknowledgePossession_CDH(obj: UObject,args: WrappedStruct, ret: Any, func: BoundFunction) -> Any:
+def set_weights(pc:UObject):
     set_ondeath_pools()
-    player_level = obj.PrimaryCharacter.PlayerBalanceComponent.ExperienceLevel
+    player_level = pc.PrimaryCharacter.PlayerBalanceComponent.ExperienceLevel
+    print(player_level)
     if player_level >= 70:
         for i in range(5):
             RARITYRESOLVERS[i].ValueA.BaseValueConstant = RARITYWEIGHTS[70][i]
@@ -100,11 +99,22 @@ def ServerAcknowledgePossession_CDH(obj: UObject,args: WrappedStruct, ret: Any, 
         if player_level <= level:
             for i in range(5):
                 RARITYRESOLVERS[i].ValueA.BaseValueConstant = RARITYWEIGHTS[level][i]
+                print(RARITYWEIGHTS[level][i])
             if RARITYRESOLVERS[2].ValueA.BaseValueConstant > 0: 
                 CDHETECHRARERESOLVER.ValueA.BaseValueConstant = RARITYRESOLVERS[2].ValueA.BaseValueConstant / 3
                 if RARITYRESOLVERS[3].ValueA.BaseValueConstant > 0:
                     CDHETECHVERYRARERESOLVER.ValueA.BaseValueConstant = RARITYRESOLVERS[3].ValueA.BaseValueConstant / 3
             break
+
+
+@hook("/Script/OakGame.TravelStationObject:PlayerEnteredArea", Type.POST)
+def PlayerEnteredArea_CDH(obj: UObject,args: WrappedStruct, ret: Any, func: BoundFunction) -> Any:
+    set_weights(args.GbxPC)
+
+@hook("/Script/OakGame.OakPlayerController:OnLevelChanged", Type.POST)
+def OnLevelChanged_CDH(obj: UObject,args: WrappedStruct, ret: Any, func: BoundFunction) -> Any:
+    set_weights(obj)
+
 
 
 def has_legit_bal_def(weapon:UObject) -> bool:
