@@ -87,7 +87,6 @@ def OnPossess_CDH(obj: UObject,args: WrappedStruct, ret: Any, func: BoundFunctio
 def set_weights(pc:UObject):
     set_ondeath_pools()
     player_level = pc.PrimaryCharacter.PlayerBalanceComponent.ExperienceLevel
-    print(player_level)
     if player_level >= 70:
         for i in range(5):
             RARITYRESOLVERS[i].ValueA.BaseValueConstant = RARITYWEIGHTS[70][i]
@@ -99,7 +98,6 @@ def set_weights(pc:UObject):
         if player_level <= level:
             for i in range(5):
                 RARITYRESOLVERS[i].ValueA.BaseValueConstant = RARITYWEIGHTS[level][i]
-                print(RARITYWEIGHTS[level][i])
             if RARITYRESOLVERS[2].ValueA.BaseValueConstant > 0: 
                 CDHETECHRARERESOLVER.ValueA.BaseValueConstant = RARITYRESOLVERS[2].ValueA.BaseValueConstant / 3
                 if RARITYRESOLVERS[3].ValueA.BaseValueConstant > 0:
